@@ -1,0 +1,45 @@
+﻿@page "/"
+@inherits FreelancerBase
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-10">
+            @if (Freelancers == null)
+            {
+                <h3>Loading Frelancers...</h3>
+            }
+            else
+            {
+                <h3 class="mb-5">All Frelancers</h3>
+                <p></p>
+                <FreelancerTable Freelancers="Freelancers" OnChange="OnFreelancerChangeAsync"></FreelancerTable>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .margin-right-15 {
+        margin-right: 15px !important;
+    }
+
+    .margin-left-15 {
+        margin-left: 15px !important;
+    }
+
+    .margin-top-15 {
+        margin-top: 15px !important;
+    }
+
+    .margin-bottom-15 {
+        margin-bottom: 15px !important;
+    }
+    .width-500 {
+        width: 500px !important;
+    }
+
+    .float-right {
+        float: right;
+    }    
+</style>
+

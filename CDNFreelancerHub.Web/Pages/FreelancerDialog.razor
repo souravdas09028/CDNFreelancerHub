@@ -1,0 +1,77 @@
+﻿@using CDNFreelancerHub.Common;
+@inherits FreelancerDialogBase
+
+<MatDialog @bind-IsOpen="@FreelancerDialogueModel.IsOpen" CanBeClosed=false Class="dialog-container small-dialog">
+    <MatDialogContent Class="width-500">
+        <EditForm Model="FreelancerDialogueModel.ModelDTO" OnValidSubmit="@OnSave">
+            <DataAnnotationsValidator />
+            <MatDialogTitle>@FreelancerDialogueModel.ActionType Freelancer</MatDialogTitle>
+            <div class="margin-top-15">
+                <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.FirstName" Label="FirstName" FullWidth=false Style="width:400px;"></MatTextField>
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.FirstName)" />
+                </p>
+                <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.LastName" Label="LastName" FullWidth=false Style="width:400px;"></MatTextField>
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.LastName)" />
+                </p>
+                <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.Email" Label="Email" FullWidth=false Style="width:400px;"></MatTextField>
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.Email)" />
+                </p>
+                <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.Skills" Label="Skils(Comma Seperated)" FullWidth=true></MatTextField>
+
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.Skills)" />
+                </p>
+                <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.Hobby" Label="Hobby" FullWidth=true></MatTextField>
+
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.Hobby)" />
+                </p>
+                <p>
+                    <MatSelectItem @bind-Value="@FreelancerDialogueModel.ModelDTO.Status" Items="@Status" Label="Status" FullWidth=true></MatSelectItem>
+
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.Status)" />
+                </p>
+            </div>
+        </EditForm>
+    </MatDialogContent>
+    <MatDialogActions>
+        <MatButton Type="submit" OnClick="@OnSave">Save</MatButton>&nbsp;
+        <MatButton OnClick="@OnCancel">Cancel</MatButton>
+    </MatDialogActions>
+</MatDialog>
+
+<style>
+
+    .mdc-dialog .mdc-dialog__container {
+        width: 90%;
+    }
+
+    .mdc-dialog .mdc-dialog__surface {
+        max-width: none;
+        width: 90%;
+    }
+
+    .mdc-dialog .mdc-dialog__scrim {
+        background-color: rgba(0,0,0,0);
+    }
+
+    .dialog-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: none;
+        background-color: none;
+    }
+
+    .small-dialog {
+        max-width: 700px;
+    }
+
+    .large-dialog {
+        max-width: 900px;
+    }
+</style>

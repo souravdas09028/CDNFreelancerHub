@@ -1,0 +1,43 @@
+﻿@inherits FreelancerTableBase
+
+<p>
+    <MatTextField @bind-Value="@FreelancerSearchText" Label="Search" Icon="search"></MatTextField>
+    <MatButton Outlined="true" OnClick="@OpenAddFreelancerDialogue" Icon="add" Style="color: darkblue" Class="float-right">Add</MatButton>
+</p>
+
+<p></p>
+
+<MatTable Items="@DisplayedFreelancers"
+          AllowSelection="true"
+          Striped="true"
+          UseSortHeaderRow="true"
+          OnRowDbClick="OnRowDbClick"
+          PageSize="10"
+          class="mat-elevation-z5">
+    <MatTableHeader>
+        <MatSortHeaderRow SortChanged="@SortData">
+            <MatSortHeader SortId="state">Status</MatSortHeader>
+            <MatSortHeader SortId="name"><div style="width: 400px;">Name</div></MatSortHeader>
+            <MatSortHeader SortId="action">Action</MatSortHeader>
+        </MatSortHeaderRow>
+    </MatTableHeader>
+    <MatTableRow>
+        <td>@context.Status</td>
+        <td>@context.FirstName</td>
+        <td>
+            <MatButton Outlined="true" OnClick="@(_ => OpenEditFreelancerDialogue(@context))" Icon="edit" Style="color: darkorange">Edit</MatButton>
+            <MatButton Outlined="true" OnClick="@(_ => OpenDeleteFreelancerPopupAsync(@context))" Icon="delete" Style="color: darkred">Delete</MatButton>
+        </td>
+    </MatTableRow>
+</MatTable>
+
+@if (!Freelancers.Any())
+{
+    <i>There are no frelancers available to display</i>
+}
+
+<p></p>
+
+<FreelancerDialog FreelancerDialogueModel="FreelancerDialogueModel"
+             OnSave="OnSaveAsync"
+             OnCancel="OnCancel"></FreelancerDialog>
