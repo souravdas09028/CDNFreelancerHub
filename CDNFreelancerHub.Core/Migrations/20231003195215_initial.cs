@@ -19,6 +19,8 @@ namespace CDNFreelancerHub.Core.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Hobby = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Skills = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -30,6 +32,12 @@ namespace CDNFreelancerHub.Core.Migrations
                 {
                     table.PrimaryKey("PK_Freelancers", x => x.ID);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Freelancers_UserName",
+                table: "Freelancers",
+                column: "UserName",
+                unique: true);
         }
 
         /// <inheritdoc />

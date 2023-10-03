@@ -57,6 +57,10 @@ namespace CDNFreelancerHub.Core.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getdate()");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Skills")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -64,7 +68,15 @@ namespace CDNFreelancerHub.Core.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("Freelancers");
                 });

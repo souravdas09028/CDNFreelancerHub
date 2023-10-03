@@ -17,13 +17,15 @@
     <MatTableHeader>
         <MatSortHeaderRow SortChanged="@SortData">
             <MatSortHeader SortId="state">Status</MatSortHeader>
-            <MatSortHeader SortId="name"><div style="width: 400px;">Name</div></MatSortHeader>
+            <MatSortHeader SortId="name"><div style="width: 300px;">First Name</div></MatSortHeader>
+            <MatSortHeader SortId="name"><div style="width: 200px;">User Name</div></MatSortHeader>
             <MatSortHeader SortId="action">Action</MatSortHeader>
         </MatSortHeaderRow>
     </MatTableHeader>
     <MatTableRow>
         <td>@context.Status</td>
         <td>@context.FirstName</td>
+        <td>@context.UserName</td>
         <td>
             <MatButton Outlined="true" OnClick="@(_ => OpenEditFreelancerDialogue(@context))" Icon="edit" Style="color: darkorange">Edit</MatButton>
             <MatButton Outlined="true" OnClick="@(_ => OpenDeleteFreelancerPopupAsync(@context))" Icon="delete" Style="color: darkred">Delete</MatButton>

@@ -1,11 +1,7 @@
-﻿using CDNFreelancerHub.Common;
-using CDNFreelancerHub.Core.Base;
-using System;
-using System.Collections.Generic;
+﻿using CDNFreelancerHub.Core.Base;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CDNFreelancerHub.Core.Entities
 {
@@ -18,6 +14,13 @@ namespace CDNFreelancerHub.Core.Entities
         [Required]
         [MaxLength(100)]
         public string LastName { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string UserName { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
 
         [Required]
         public string Email { get; set; }

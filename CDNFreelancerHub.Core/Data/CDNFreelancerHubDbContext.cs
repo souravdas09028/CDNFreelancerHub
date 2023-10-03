@@ -12,7 +12,15 @@ namespace CDNFreelancerHub.Core.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            setUniqueKey(modelBuilder);
             setDefaultValues(modelBuilder);
+        }
+
+        private void setUniqueKey(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Freelancer>()
+          .HasIndex(e => e.UserName)
+          .IsUnique();
         }
 
         private void setDefaultValues(ModelBuilder modelBuilder)

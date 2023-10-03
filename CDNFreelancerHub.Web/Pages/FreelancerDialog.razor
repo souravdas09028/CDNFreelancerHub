@@ -15,6 +15,14 @@
                     <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.LastName" Label="LastName" FullWidth=false Style="width:400px;"></MatTextField>
                     <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.LastName)" />
                 </p>
+                 <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.UserName" Label="UserName (Must Be Unique)" FullWidth=false Style="width:400px;"></MatTextField>
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.UserName)" />
+                </p>
+                <p>
+                    <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.PhoneNumber" Label="Phone Number" FullWidth=false Style="width:400px;"></MatTextField>
+                    <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.PhoneNumber)" />
+                </p>
                 <p>
                     <MatTextField @bind-Value="@FreelancerDialogueModel.ModelDTO.Email" Label="Email" FullWidth=false Style="width:400px;"></MatTextField>
                     <ValidationMessage For="@(() => FreelancerDialogueModel.ModelDTO.Email)" />
