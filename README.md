@@ -2,7 +2,6 @@
 Freelancer Database For CDN
 
 Description
-
 A Blazor WebAssembly app for capturing Freelancer data.
 
 Task Details
